@@ -1,0 +1,1 @@
+# ycoin-samrtcontracts

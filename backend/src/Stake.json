@@ -1,0 +1,265 @@
+{
+  "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+  "abi": [
+    {
+      "type": "constructor",
+      "payable": false,
+      "inputs": [{ "type": "address", "name": "ycoinAddress" }]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "EarnReleased",
+      "inputs": [{ "type": "address", "name": "_user", "indexed": true }]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "MetaTransactionExecuted",
+      "inputs": [
+        { "type": "address", "name": "userAddress", "indexed": false },
+        { "type": "address", "name": "relayerAddress", "indexed": false },
+        { "type": "bytes", "name": "functionSignature", "indexed": false }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "ModifiedRates",
+      "inputs": [
+        { "type": "uint8", "name": "_level", "indexed": false },
+        { "type": "uint256", "name": "_unlock", "indexed": false },
+        { "type": "uint256", "name": "_onemonth", "indexed": false },
+        { "type": "uint256", "name": "_threemonth", "indexed": false }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "NewStaker",
+      "inputs": [
+        { "type": "address", "name": "_staker", "indexed": true },
+        { "type": "uint256", "name": "_amount", "indexed": false },
+        { "type": "uint8", "name": "_stakeDuration", "indexed": false }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "OwnershipTransferred",
+      "inputs": [
+        { "type": "address", "name": "previousOwner", "indexed": true },
+        { "type": "address", "name": "newOwner", "indexed": true }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "RewardReleased",
+      "inputs": [
+        { "type": "address", "indexed": true },
+        { "type": "uint256", "name": "_reward", "indexed": false }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "StakeReleased",
+      "inputs": [
+        { "type": "address", "indexed": true },
+        { "type": "uint256", "name": "_amount", "indexed": false }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "RewardRates",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [{ "type": "address" }],
+      "outputs": [
+        { "type": "uint256", "name": "low_un" },
+        { "type": "uint256", "name": "low_one" },
+        { "type": "uint256", "name": "low_three" },
+        { "type": "uint256", "name": "medium_un" },
+        { "type": "uint256", "name": "medium_one" },
+        { "type": "uint256", "name": "medium_three" },
+        { "type": "uint256", "name": "high_un" },
+        { "type": "uint256", "name": "high_one" },
+        { "type": "uint256", "name": "high_three" }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "StakersData",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [{ "type": "address" }],
+      "outputs": [
+        { "type": "uint256", "name": "amount" },
+        { "type": "uint256", "name": "stakingTime" },
+        { "type": "uint256", "name": "lastRewardTime" },
+        { "type": "uint8", "name": "stakeDuration" },
+        { "type": "bool", "name": "isStaking" }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "changeRates",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        { "type": "uint8", "name": "_level" },
+        { "type": "uint256", "name": "_unlock" },
+        { "type": "uint256", "name": "_onemonth" },
+        { "type": "uint256", "name": "_threemonth" }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "executeMetaTransaction",
+      "constant": false,
+      "stateMutability": "payable",
+      "payable": true,
+      "inputs": [
+        { "type": "address", "name": "userAddress" },
+        { "type": "bytes", "name": "functionSignature" },
+        { "type": "bytes32", "name": "sigR" },
+        { "type": "bytes32", "name": "sigS" },
+        { "type": "uint8", "name": "sigV" }
+      ],
+      "outputs": [{ "type": "bytes" }]
+    },
+    {
+      "type": "function",
+      "name": "getChainID",
+      "constant": true,
+      "stateMutability": "pure",
+      "payable": false,
+      "inputs": [],
+      "outputs": [{ "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "getNonce",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [{ "type": "address", "name": "user" }],
+      "outputs": [{ "type": "uint256", "name": "nonce" }]
+    },
+    {
+      "type": "function",
+      "name": "getRewardRates",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [{ "type": "uint8", "name": "_level" }],
+      "outputs": [
+        { "type": "uint256", "name": "_unlock" },
+        { "type": "uint256", "name": "_onemonth" },
+        { "type": "uint256", "name": "_threemonth" }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getStakerData",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [{ "type": "address", "name": "_staker" }],
+      "outputs": [
+        { "type": "uint256", "name": "_amount" },
+        { "type": "uint256", "name": "_timeElapsed" }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [{ "type": "address" }]
+    },
+    {
+      "type": "function",
+      "name": "releaseAllTokens",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": [{ "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "releaseReward",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "renounceOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "stakeCoins",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        { "type": "uint256", "name": "_amount" },
+        { "type": "uint8", "name": "_stakeDuration" }
+      ],
+      "outputs": [{ "type": "bool" }]
+    },
+    {
+      "type": "function",
+      "name": "totalStakedAmount",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [{ "type": "uint256" }]
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "constant": false,
+      "payable": false,
+      "inputs": [{ "type": "address", "name": "newOwner" }],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "unStakeCoins",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": [{ "type": "bool" }]
+    },
+    {
+      "type": "function",
+      "name": "verify",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        { "type": "address", "name": "owner" },
+        { "type": "uint256", "name": "nonce" },
+        { "type": "uint256", "name": "chainID" },
+        { "type": "bytes", "name": "functionSignature" },
+        { "type": "bytes32", "name": "sigR" },
+        { "type": "bytes32", "name": "sigS" },
+        { "type": "uint8", "name": "sigV" }
+      ],
+      "outputs": [{ "type": "bool" }]
+    }
+  ]
+}
